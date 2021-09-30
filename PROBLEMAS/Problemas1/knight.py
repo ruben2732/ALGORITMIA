@@ -43,7 +43,7 @@ def read_data(f) -> Tuple[int, int, int, int]:
     cols = f.readline()
     first_row = f.readline()
     first_col = f.readline()
-    return (int(rows), int(cols), int(first_row), int(first_col))
+    return int(rows), int(cols), int(first_row), int(first_col)
 
 
 def show_data(n: int):

@@ -3,22 +3,24 @@ import sys
 from typing import Iterator
 
 
-
 def read_data(f):
-    read=f.readline()
+    read = f.readline()
     return int(read)
 
+
 def take(n: int, it: Iterator[int]):
-    num=0
-    while num<n:
+    num = 0
+    while num < n:
         yield next(it)
-        num+=1
+        num += 1
+
 
 def es_primo(k):
     for n in range(2, k):
         if k % n == 0:
             return False
     return True
+
 
 def primos() -> Iterator[int]:
     p = 2
@@ -29,29 +31,31 @@ def primos() -> Iterator[int]:
 
 
 def squares1():
-    num=1
+    num = 1
     while True:
-        yield (num*num)+1
-        num+=1
+        yield (num * num) + 1
+        num += 1
+
 
 def almost_squares():
-    s=squares1()
-    p=primos()
+    s = squares1()
+    p = primos()
 
-    sq=next(s)
-    pr=next(p)
+    sq = next(s)
+    pr = next(p)
     while True:
-        if sq==pr :
+        if sq == pr:
             yield pr
-            pr=next(p)
-            sq=next(s)
-        elif pr<sq:
-            pr=next(p)
+            pr = next(p)
+            sq = next(s)
+        elif pr < sq:
+            pr = next(p)
         else:
-            sq=next(s)
+            sq = next(s)
+
 
 def show_results(results):
-    it=results
+    it = results
     for i in it:
         print(i)
 
